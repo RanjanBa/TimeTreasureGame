@@ -1,3 +1,0 @@
-Time Treasure
-
-1. Implementation of the game
