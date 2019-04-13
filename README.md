@@ -10,17 +10,17 @@ The game can be played among 2 to 4 players. The main of objective of the game i
 
 #### 3. Rules Of the Card ####
 >There are four types of cards:
-* 24 Hour cards :
-  * ranges from 1AM to 12AM and 1PM to 12PM
-* 22 Power cards :
-  * 2 Longitude Master cards
-  * 4 GMT Master cards
-  * 2 Master cards
-  * 2 Three Point cards
-  * 6 +x Cards (where x ranges from 1 to 6)
-  * 6 -x cards (where x ranges from 1 to 6)
+>* 24 Hour cards :
+>  * ranges from 1AM to 12AM and 1PM to 12PM
+>* 22 Power cards :
+>  * 2 Longitude Master cards
+>  * 4 GMT Master cards
+>  * 2 Master cards
+>  * 2 Three Point cards
+>  * 6 +x Cards (where x ranges from 1 to 6)
+>  * 6 -x cards (where x ranges from 1 to 6)
 >* 24 Trap cards :
-  * ranges from -11 to 12
+>  * ranges from -11 to 12
 >* 70 Fuel cards
 
 '''python
