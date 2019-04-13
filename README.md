@@ -23,19 +23,19 @@ The game can be played among 2 to 4 players. The main of objective of the game i
 >  * ranges from -11 to 12
 >* 70 Fuel cards
 
->* **Hour card : ** By this cards player can move from one longitude to another longitude along the same latitude. For example, player has _2AM_ card, then he can move his pawn from current longitude to that longitude where local time is _2AM_.
+>* __Hour card :__ By this cards player can move from one longitude to another longitude along the same latitude. For example, player has _2AM_ card, then he can move his pawn from current longitude to that longitude where local time is _2AM_.
 
->* **Power Card : **
-  * _Longitude Master card :_ By this card player can collect all treasures and coins present on the longitude where player is currently present.
-  * _GMT Master card :_ By this card player can change the time of the GMT0 longitude to any time.
-  * _Master Card :_ By this card player can move to any longitude without changing the latitude.
-  * _There Point card :_ By this card player can get there point.
-  * _+x Hour Card :_ By this card player can jump x steps forward. For example, player has +3hr card, then he can jump 3 step forward along the same latitude.
-  * _-x Hour Card :_ By this card player can jump x steps backward. For example, player has -3hr card, then he can jump 3 step backward along the same latitude.
+>* __Power Card :__
+>  * _Longitude Master card :_ By this card player can collect all treasures and coins present on the longitude where player is currently present.
+>  * _GMT Master card :_ By this card player can change the time of the GMT0 longitude to any time.
+>  * _Master Card :_ By this card player can move to any longitude without changing the latitude.
+>  * _There Point card :_ By this card player can get there point.
+>  * _+x Hour Card :_ By this card player can jump x steps forward. For example, player has +3hr card, then he can jump 3 step forward along the same latitude.
+>  * _-x Hour Card :_ By this card player can jump x steps backward. For example, player has -3hr card, then he can jump 3 step backward along the same latitude.
 
->* **Fuel Card : ** By this card player can move along the same longitude i.e. player can change the latitude by playing this card. For example, player can jump 3 step upward or downward by playing 3 fuel cards.
+>* __Fuel Card :__ By this card player can move along the same longitude i.e. player can change the latitude by playing this card. For example, player can jump 3 step upward or downward by playing 3 fuel cards.
 
->* ***Trap Card : *** By this card player can trap another player i.e. player can play this card to get fuel card from another player. For example, player has _GMT-2 trap card_ and other player is at -2 longitude, then player can play that card to get fuel from another player.
+>* __Trap Card :__ By this card player can trap another player i.e. player can play this card to get fuel card from another player. For example, player has _GMT-2 trap card_ and other player is at -2 longitude, then player can play that card to get fuel from another player.
 
 #### 4. Tools Used ####
 * Unity Game Engine
