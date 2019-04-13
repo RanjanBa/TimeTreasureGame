@@ -1,6 +1,6 @@
 ## Time Treasure Game ##
 * #### Project Overview ####
-* #### [Gameplay Overview](id1) ####
+* #### [Gameplay Overview](#id1) ####
 
 
 #### 1. Project Overview ####
