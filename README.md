@@ -19,3 +19,11 @@ The game can be played among 2 to 4 players. The main of objective of the game i
   * 2 Three Point cards
   * 6 +x Cards (where x ranges from 1 to 6)
   * 6 -x cards (where x ranges from 1 to 6)
+>* 24 Trap cards :
+  * ranges from -11 to 12
+>* 70 Fuel cards
+
+'''python
+  def add(num1, num2):
+    return num1 + num2
+'''
