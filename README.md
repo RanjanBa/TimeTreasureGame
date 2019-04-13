@@ -2,7 +2,7 @@
 * #### [Project Overview](#project-overview) ####
 * #### [Gameplay Overview](#gameplay-overview) ####
 * #### [Rules of the Cards](#rules-cards) ####
-* #### [Tools Used](#tools-used) ####
+* #### [Tools Used](#tools) ####
 
 
 #### <a name="project-overview"/> 1. Project Overview ####
@@ -43,7 +43,7 @@ The game can be played among 2 to 4 players. The main of objective of the game i
 
 >* __Trap Card :__ By this card player can trap another player i.e. player can play this card to get fuel card from another player. For example, player has _GMT-2 trap card_ and other player is at -2 longitude, then player can play that card to get fuel from another player.
 
-#### <a name="tools-used"/> 4. Tools Used ####
+#### <a name="tools"/> 4. Tools Used ####
 * Unity Game Engine
 * Visual Studio 2017
 * Firebase (for online multiplayer)
