@@ -13,14 +13,14 @@ The game can be played among 2 to 4 players. The main of objective of the game i
 >* 24 Hour cards :
 >  * ranges from 1AM to 12AM and 1PM to 12PM
 >* 22 Power cards :
->  * 2 Longitude Master cards
->  * 4 GMT Master cards
->  * 2 Master cards
->  * 2 Three Point cards
->  * 6 +x hour Cards (where x ranges from 1 to 6)
->  * 6 -x hour cards (where x ranges from 1 to 6)
+>   * 2 Longitude Master cards
+>   * 4 GMT Master cards
+>   * 2 Master cards
+>   * 2 Three Point cards
+>   * 6 +x hour Cards (where x ranges from 1 to 6)
+>   * 6 -x hour cards (where x ranges from 1 to 6)
 >* 24 Trap cards :
->  * ranges from -11 to 12
+>   * ranges from -11 to 12
 >* 70 Fuel cards
 
 >* __Hour card :__ By this cards player can move from one longitude to another longitude along the same latitude. For example, player has _2AM_ card, then he can move his pawn from current longitude to that longitude where local time is _2AM_.
