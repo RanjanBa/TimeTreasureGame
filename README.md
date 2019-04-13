@@ -8,7 +8,7 @@ The game can be played among 2 to 4 players. The main of objective of the game i
 
 ![Gameplay board](https://markdown-here.com/img/icon256.png)
 
-#### 3. Rules Of the Card ####
+#### 3. Rules Of the Cards ####
 >There are four types of cards:
 >* 24 Hour cards :
 >  * ranges from 1AM to 12AM and 1PM to 12PM
@@ -23,7 +23,8 @@ The game can be played among 2 to 4 players. The main of objective of the game i
 >  * ranges from -11 to 12
 >* 70 Fuel cards
 
-'''python
-  def add(num1, num2):
-    return num1 + num2
-'''
+>* ***Hour card : *** By this cards player can move from one longitude to another longitude. For example, player has _2AM_ card, then he can move his pawn from current longitude to that longitude where local time is _2AM_.
+
+>* ***Power Card: ***
+  * _Longitude Master card_ : By this card player can collect all treasures and coins present on the longitude where player is currently present.
+  * _GMT Master card_ : By this card player can change the time of the GMT0 longitude to any time.
