@@ -11,7 +11,7 @@ The game can be played among 2 to 4 players. The main of objective of the game i
 #### 3. Rules Of the Cards ####
 >There are four types of cards:
 >* 24 Hour cards :
->  * ranges from 1AM to 12AM and 1PM to 12PM
+>   * ranges from 1AM to 12AM and 1PM to 12PM
 >* 22 Power cards :
 >   * 2 Longitude Master cards
 >   * 4 GMT Master cards
@@ -26,12 +26,12 @@ The game can be played among 2 to 4 players. The main of objective of the game i
 >* __Hour card :__ By this cards player can move from one longitude to another longitude along the same latitude. For example, player has _2AM_ card, then he can move his pawn from current longitude to that longitude where local time is _2AM_.
 
 >* __Power Card :__
->  * _Longitude Master card :_ By this card player can collect all treasures and coins present on the longitude where player is currently present.
->  * _GMT Master card :_ By this card player can change the time of the GMT0 longitude to any time.
->  * _Master Card :_ By this card player can move to any longitude without changing the latitude.
->  * _There Point card :_ By this card player can get there point.
->  * _+x Hour Card :_ By this card player can jump x steps forward. For example, player has +3hr card, then he can jump 3 step forward along the same latitude.
->  * _-x Hour Card :_ By this card player can jump x steps backward. For example, player has -3hr card, then he can jump 3 step backward along the same latitude.
+>   * _Longitude Master card :_ By this card player can collect all treasures and coins present on the longitude where player is currently present.
+>   * _GMT Master card :_ By this card player can change the time of the GMT0 longitude to any time.
+>   * _Master Card :_ By this card player can move to any longitude without changing the latitude.
+>   * _There Point card :_ By this card player can get there point.
+>   * _+x Hour Card :_ By this card player can jump x steps forward. For example, player has +3hr card, then he can jump 3 step forward along the same latitude.
+>   * _-x Hour Card :_ By this card player can jump x steps backward. For example, player has -3hr card, then he can jump 3 step backward along the same latitude.
 
 >* __Fuel Card :__ By this card player can move along the same longitude i.e. player can change the latitude by playing this card. For example, player can jump 3 step upward or downward by playing 3 fuel cards.
 
