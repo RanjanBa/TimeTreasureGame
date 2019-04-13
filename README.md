@@ -47,3 +47,18 @@ The game can be played among 2 to 4 players. The main of objective of the game i
 * Unity Game Engine
 * Visual Studio 2017
 * Firebase (for online multiplayer)
+* Unity Game Engine
+* Visual Studio 2017
+* Firebase (for online multiplayer)* Unity Game Engine
+* Visual Studio 2017
+* Firebase (for online multiplayer)* Unity Game Engine
+* Visual Studio 2017
+* Firebase (for online multiplayer)* Unity Game Engine
+* Visual Studio 2017
+* Firebase (for online multiplayer)* Unity Game Engine
+* Visual Studio 2017
+* Firebase (for online multiplayer)* Unity Game Engine
+* Visual Studio 2017
+* Firebase (for online multiplayer)* Unity Game Engine
+* Visual Studio 2017
+* Firebase (for online multiplayer)
