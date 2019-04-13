@@ -369,6 +369,7 @@ public class GameplayManager : MonoBehaviour
         InstantiatePlayers(m_allPawnInfos);
         ResourceManager.m_Instance.GenerateAllCoinsAndTreasures();
         m_currentPlayerIndex = -1;
+        m_CurrentTimeOfGMT0 = m_currentTimeOfGMT0;
         UpdateCurrentTimeOfGMTIndices(m_currentTimeOfGMT0);
         GameplayCanvasManager.m_Instance.EnableOrDisableAllUpperButton(true);
         GameplayCanvasManager.m_Instance.ShowGameplayCanvasMenu(GameplayCanvasMenu.GameplayBoardPanel);

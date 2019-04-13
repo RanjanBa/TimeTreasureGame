@@ -310,11 +310,14 @@ public class GameManager : MonoBehaviour
     {
         if (m_GameType == GameType.Online)
         {
-            FirebaseRealtimeDatabase.m_Instance.UnSubscribeJoinOrRemovePlayerEventHandler(m_GameInfo);
-            FirebaseRealtimeDatabase.m_Instance.UnSubscribeOnGameStateChangedEventHandler(m_GameInfo);
-            FirebaseRealtimeDatabase.m_Instance.UnsubscribeOnPlayedCardValueChanged(m_GameInfo);
+            if (FirebaseRealtimeDatabase.m_Instance != null && m_GameInfo != null)
+            {
+                FirebaseRealtimeDatabase.m_Instance.UnSubscribeJoinOrRemovePlayerEventHandler(m_GameInfo);
+                FirebaseRealtimeDatabase.m_Instance.UnSubscribeOnGameStateChangedEventHandler(m_GameInfo);
+                FirebaseRealtimeDatabase.m_Instance.UnsubscribeOnPlayedCardValueChanged(m_GameInfo);
+            }
 
-            if (m_OwnerInfo != null)
+            if (m_OwnerInfo != null && m_GameInfo != null && FirebaseRealtimeDatabase.m_Instance != null)
             {
                 if (m_OwnerInfo.m_PlayerUID == m_GameInfo.m_CreatorUID)
                 {
@@ -327,7 +330,10 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                Toast.m_Instance.ShowMessage("Owner info is null...");
+                if (Toast.m_Instance != null)
+                {
+                    Toast.m_Instance.ShowMessage("Owner info is null...");
+                }
             }
         }
         else
