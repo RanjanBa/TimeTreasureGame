@@ -2,6 +2,7 @@
 * #### [Project overview](#project-overview) ####
 * #### [Gameplay overview](#gameplay-overview) ####
 * #### [Rules of the Cards](#rules-cards) ####
+* #### [How to play the game](#how-to-play-in-platform) ####
 * #### [Tools Used](#tools) ####
 
 
