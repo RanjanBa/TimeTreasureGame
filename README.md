@@ -47,5 +47,5 @@
 * Visual Studio 2017
 * Firebase (for online multiplayer)
 
-#### <a name="developed"/> 4. How the Game was developed ####
->
+#### <a name="developed"/> 4. How to play the game ####
+>To play the game in android platform, you have to install the \*.apk file which is present at Build folder

@@ -107,6 +107,11 @@ namespace TimeTreasure
             });
             m_onlineButton.onClick.AddListener(() =>
             {
+                if(Application.platform != RuntimePlatform.Android)
+                {
+                    Toast.m_Instance.ShowMessage("Currently not impleted for " + Application.platform.ToString() + " platform");
+                    return;
+                }
                 if(GameManager.m_Instance.IsConnectedToInternet == false)
                 {
                     Toast.m_Instance.ShowMessage("You are not connected to the internet");
