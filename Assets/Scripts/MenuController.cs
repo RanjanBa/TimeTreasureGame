@@ -254,7 +254,7 @@ namespace TimeTreasure
             {
                 if(playerInfo.m_PlayerName == m_playerNameTextInput.text)
                 {
-                    Toast.m_Instance.ShowMessage("Player name is already used...");
+                    Toast.m_Instance.ShowMessage("Player name is already used... " + GameManager.m_Instance.m_JoinedPlayersInfo.Count);
                     return;
                 }
             }
