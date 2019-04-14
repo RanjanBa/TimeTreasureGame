@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "744571833331",
+    "firebase_url": "https://timetreasure-3303a.firebaseio.com",
+    "project_id": "timetreasure-3303a",
+    "storage_bucket": "timetreasure-3303a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:744571833331:android:9810dfd365d01d65",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.TimeTreasure"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "744571833331-in38lnu1c4ir2puudh4fao7qu92vlc7q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9AOko2av9kfh4g_CXE-TnW-os-0jj1kA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
