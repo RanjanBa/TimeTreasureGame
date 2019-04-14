@@ -28,4 +28,5 @@ ExportedObj/
 sysinfo.txt
 
 # Builds
+*.meta
 *.unitypackage
