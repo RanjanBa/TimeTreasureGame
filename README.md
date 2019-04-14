@@ -48,13 +48,14 @@
 >To play the game in android platform, you have to install the \*.apk file  and in widnows pc you play the by running the TimeTreasure.exe executable file which are present at Build folder. Currently you can play online multiplayer only in android platform.
 
 #### <a name="tools"/> 5. Tools used ####
-* Unity Game Engine
-* Visual Studio 2017
-* Firebase (for online multiplayer)
+>
+>  * Unity Game Engine
+>  * Visual Studio 2017
+>  * Firebase (for online multiplayer)
 
-* __Unity Game Engine :__ It is a software-development environment designed for game developers to build video games. By this engine we can build games for any platform like android, pc, console etc.
+>  * __Unity Game Engine :__ It is a software-development environment designed for game developers to build video games. By this engine we can build games for any platform like android, pc, console etc.
 
-* __Visual Studio 2017 :__ It is an integrated development environment used to developed computer programs, mobile apps.
+>  * __Visual Studio 2017 :__ It is an integrated development environment used to developed computer programs, mobile apps.
 
-* __Firebase :__ It is a mobile and web application development platform. It is google product which offers so many features like realtime database, basic analytics, authentication, storage etc. I used it for realtime database and authentication purpose.
+>  * __Firebase :__ It is a mobile and web application development platform. It is google product which offers so many features like realtime database, basic analytics, authentication, storage etc. I used it for realtime database and authentication purpose.
 It is used because it has some functionality like listening to changes in the database and get the data changes in realtime i.e. it can sync the data across the client platform.
