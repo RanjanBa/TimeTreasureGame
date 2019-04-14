@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
+    // This block code will run when internet status changed i.e.
+    // it will check if client is connected to internet or not
     public void OnInternetConnectionChanged(object sender, ValueChangedEventArgs a)
     {
         bool isConnected = (bool)a.Snapshot.Value;
@@ -65,6 +67,9 @@ public class GameManager : MonoBehaviour
         IsConnectedToInternet = isConnected;
     }
 
+    // Call by Firebase realtime database
+    // It listen to the event of game state changed i.e.
+    // It will run when game state of the Firebase database changed
     public void OnGameStateValueChanged(object _sender, ValueChangedEventArgs _valueChangedEventArgs)
     {
         Toast.m_Instance.ShowMessage("Game state changed");
@@ -143,6 +148,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Call by Firebase realtime database
+    // Call when new Player is joined in the game
     public void OnPlayerJoined(object _sender, ChildChangedEventArgs _childChangedEventArgs)
     {
         if (_childChangedEventArgs.DatabaseError != null)
@@ -167,6 +174,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Call by Firebase realtime database
+    // Call when player is removed or disjoined
     public void OnPlayerRemoved(object _sender, ChildChangedEventArgs _childChangedEventArgs)
     {
         if (_childChangedEventArgs.DatabaseError != null)
@@ -191,6 +200,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Call by Firebase realtime database
+    // called when player played the card
     public void OnCardPlayed(object _sender, ValueChangedEventArgs _valueChangedEventArgs)
     {
         if(_valueChangedEventArgs.DatabaseError != null)
@@ -279,6 +290,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+    // Call by Firebase realtime database
+    // called when player buy fuel
     public void OnBuyFuelCard(object _sender, ValueChangedEventArgs _valueChangedEventArgs)
     {
         if(_valueChangedEventArgs.DatabaseError != null)
@@ -306,6 +320,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // It will reset all variables of GameManager
     public void ResetGame()
     {
         if (m_GameType == GameType.Online)

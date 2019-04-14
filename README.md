@@ -59,3 +59,6 @@
 
 >  * __Firebase :__ It is a mobile and web application development platform. It is google product which offers so many features like realtime database, basic analytics, authentication, storage etc. I used it for realtime database and authentication purpose.
 It is used because it has some functionality like listening to changes in the database and get the data changes in realtime i.e. it can sync the data across the client platform.
+
+#### <a name="how-to-use"/> 5. How to use the project ####
+>

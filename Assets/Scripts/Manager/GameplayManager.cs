@@ -12,6 +12,7 @@ public enum PlayedCardState
     Playing,
 }
 
+// This will manage the game play 
 public class GameplayManager : MonoBehaviour
 {
     public static GameplayManager m_Instance { get; private set; }
@@ -180,7 +181,7 @@ public class GameplayManager : MonoBehaviour
                     m_MyPawn = _pawn;
                 }
                 m_pawns.Add(_pawnInfos[i].m_PlayerInfo.m_PlayerUID, _pawn);
-            }            
+            }
         }
     }
 
@@ -489,8 +490,8 @@ public class GameplayManager : MonoBehaviour
 
     public void DecodeAllShuffleCardsAndPlayerInstantiationPositions(
         Dictionary<string, object> _remainingPowerHourCardsDict,
-        Dictionary<string, object> _remaininTrapCardsDict, 
-        Dictionary<string, object> _shuffleAllCoinAndTreasurePositionsDict, 
+        Dictionary<string, object> _remaininTrapCardsDict,
+        Dictionary<string, object> _shuffleAllCoinAndTreasurePositionsDict,
         Dictionary<string, object> _playerUIDWithInstantiationPositionAndCardsDict,
         object _currentGMTTimeAt0Object
         )
@@ -806,7 +807,7 @@ public class GameplayManager : MonoBehaviour
         //m_CurrentlyMoveLatitude.Clear();
         m_currentTimeOfGMT0 = (m_currentTimeOfGMT0 + 1) % r_TotalLongitude;
         UpdateCurrentTimeOfGMTIndices();
-        
+
         //CardManager.M_Instance.AddCardInShuffledCards();
         //foreach (var time in m_timesWhenTreasureWillAppear)
         //{

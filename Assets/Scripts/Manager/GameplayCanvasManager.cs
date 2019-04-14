@@ -17,6 +17,7 @@ public enum GameplayCanvasMenu
     WinningPanel = 7,
 }
 
+// This will manage ui of the gameplay
 public class GameplayCanvasManager : MonoBehaviour
 {
     public static GameplayCanvasManager m_Instance { get; private set; }

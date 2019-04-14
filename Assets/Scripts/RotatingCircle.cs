@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
+// This will represent loading screen
 [RequireComponent(typeof(Animation))]
 public class RotatingCircle : MonoBehaviour
 {

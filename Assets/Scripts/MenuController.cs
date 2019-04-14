@@ -20,6 +20,7 @@ namespace TimeTreasure
         StartGameMenuPage,
     }
 
+    // This will manage the ui of the main menu
     public class MenuController : MonoBehaviour
     {
         public static MenuController m_Instance { get; private set; }
@@ -470,7 +471,7 @@ namespace TimeTreasure
                 m_backButton.gameObject.SetActive(false);
             }
         }
-        
+
         // Online multiplayer
         public void OnPlayerJoined(PlayerInfo _playerInfo)
         {

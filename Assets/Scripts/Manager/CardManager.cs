@@ -2,12 +2,13 @@
 using System.Linq;
 using UnityEngine;
 
+// For managing all types of cards
 public class CardManager : MonoBehaviour
 {
     public static CardManager m_Instance { get; private set; }
 
     [SerializeField]
-    private Color 
+    private Color
         m_powerCardColor,
         m_hourCardColor,
         m_trapCardColor,
@@ -52,12 +53,20 @@ public class CardManager : MonoBehaviour
         m_Instance = this;
     }
 
+    // This will load all cards from 'Resources/CardAssets' folder
+    // Don't move the folder 'CardAssets' from folder 'Resources'
+    // Following code wiil automatically load all cards from folder at runtime
+    // If Resources folder doesn't exist create a folder in following formate
+    // Assets/Resources/CardAssets/HourCards
+    // Assets/Resources/CardAssets/PowerCards
+    // Assets/Resources/CardAssets/TrapCards
+    // Assets/Resources/CardAssets/FuelCard
     private void LoadCards()
     {
         List<HourCard> _hourCards = Resources.LoadAll<HourCard>("CardAssets/HourCards").ToList();
         _hourCards.ForEach(x => m_powerHourCardsDict.Add(x.name, x));
         ///Debug.Log("Hour cards : " + m_hourCards.Count);
-        
+
         List<PowerCard> _powerCards = Resources.LoadAll<PowerCard>("CardAssets/PowerCards").ToList();
         _powerCards.ForEach(x => m_powerHourCardsDict.Add(x.name, x));
         ///Debug.Log("Power cards : " + m_powerCards.Count);
@@ -89,6 +98,8 @@ public class CardManager : MonoBehaviour
         return null;
     }
 
+
+    // This block of code will shuffle Power and Hour cards and return shuffled cards
     public List<Card> ShufflePowerOrHourCards()
     {
         List<Card> _shufflePowerHourCards = new List<Card>();
@@ -104,6 +115,7 @@ public class CardManager : MonoBehaviour
         return _shufflePowerHourCards;
     }
 
+    // This block of code will shuffle Trap cards and return shuffled cards
     public List<TrapCard> ShuffleTrapCards()
     {
         List<TrapCard> _shuffleTrapCards = new List<TrapCard>();

@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 using TMPro;
-
+// For debuging purpose
+// Show Toast message like android platform
 public class Toast : MonoBehaviour {
     public static Toast m_Instance { get; private set; }
 

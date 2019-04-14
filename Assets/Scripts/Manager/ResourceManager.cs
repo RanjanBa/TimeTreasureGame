@@ -2,6 +2,8 @@
 using System.Linq;
 using UnityEngine;
 
+
+// This will manage coins and treasures
 public class ResourceManager : MonoBehaviour
 {
     public static readonly string r_CoinKey = "coins";

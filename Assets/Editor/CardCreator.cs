@@ -2,6 +2,8 @@
 using UnityEditor;
 using UnityEngine;
 
+// It is unity editor script
+// For Creating all cards
 public class CardCreator : EditorWindow
 {
     private static CardCreator m_window;

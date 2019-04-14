@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+// this will show value of GMT or Time in the ui
 public class Value : MonoBehaviour
 {
     [SerializeField]
@@ -34,7 +35,7 @@ public class Value : MonoBehaviour
             {
                 _text = m_value % 12 + " PM";
             }
-            
+
             m_button.onClick.AddListener(() => GMTTime(m_value, _owner, _powerCard));
         }
         else if(_powerCard.m_powerType == PowerTypes.Master)

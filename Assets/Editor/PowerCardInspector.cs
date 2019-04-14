@@ -1,6 +1,8 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
+// for Inspecting values and initializing values through unity editor
+
 [CustomEditor(typeof(PowerCard))]
 public class PowerCardInspector : Editor
 {
@@ -23,6 +25,6 @@ public class PowerCardInspector : Editor
             default:
                 break;
         }
-        
+
     }
 }
