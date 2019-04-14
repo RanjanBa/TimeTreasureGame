@@ -35,17 +35,17 @@
 >   * _Longitude Master card :_ By this card player can collect all treasures and coins present on the longitude where player is currently present.
 >   * _GMT Master card :_ By this card player can change the time of the GMT0 longitude to any time.
 >   * _Master Card :_ By this card player can move to any longitude without changing the latitude.
->   * _There Point card :_ By this card player can get there point.
->   * _+x Hour Card :_ By this card player can jump x steps forward. For example, player has +3hr card, then he can jump 3 step forward along the same latitude.
->   * _-x Hour Card :_ By this card player can jump x steps backward. For example, player has -3hr card, then he can jump 3 step backward along the same latitude.
+>   * _There Point card :_ By this card player can get three point.
+>   * _+x Hour Card :_ By this card player can jump x steps forward. For example, player has +3hr card, then he can jump 3 steps forward along the same latitude.
+>   * _-x Hour Card :_ By this card player can jump x steps backward. For example, player has -3hr card, then he can jump 3 steps backward along the same latitude.
 
->* __Fuel Card :__ By this card player can move along the same longitude i.e. player can change the latitude by playing this card. For example, player can jump 3 step upward or downward by playing 3 fuel cards.
+>* __Fuel Card :__ By this card player can move along the same longitude i.e. player can change the latitude by playing this card. For example, player can jump 3 steps upward or downward by playing 3 fuel cards.
 
 >* __Trap Card :__ By this card player can trap another player i.e. player can play this card to get fuel card from another player. For example, player has _GMT-2 trap card_ and other player is at -2 longitude, then player can play that card to get fuel from another player.
 
 
 #### <a name="how-to-play-in-platform"/> 4. How to play the game ####
->To play the game in android platform, you have to install the \*.apk file  and in widnows pc you play the by running the TimeTreasure.exe executable file which are present at Build folder. Currently you can play online multiplayer only in android platform.
+>To play the game in android platform, you have to install the \*.apk file  and in widnows pc you can play the game by running the TimeTreasure.exe executable file which are present at Build folder. Currently you can play online multiplayer only in android platform.
 
 #### <a name="tools"/> 5. Tools used ####
 >
@@ -57,8 +57,8 @@
 
 >  * __Visual Studio 2017 :__ It is an integrated development environment used to developed computer programs, mobile apps.
 
->  * __Firebase :__ It is a mobile and web application development platform. It is google product which offers so many features like realtime database, basic analytics, authentication, storage etc. I used it for realtime database and authentication purpose.
-It is used because it has some functionality like listening to changes in the database and get the data changes in realtime i.e. it can sync the data across the client platform.
+>  * __Firebase :__ It is a mobile and web application development platform. It is a google product which offers so many features like real-time database, basic analytics, authentication, storage etc. I used it for real-time database and authentication purpose.
+It is used because it has some functionality like listening to changes in the database and get the data changes in real-time i.e. it can sync the data across the client platform.
 
 #### <a name="how-to-use"/> 5. How to use the project ####
 >
