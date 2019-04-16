@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 // For debuging purpose
 // Show Toast message like android platform
 public class Toast : MonoBehaviour {
@@ -10,6 +11,8 @@ public class Toast : MonoBehaviour {
     private GameObject m_toastPanel;
     [SerializeField]
     private TextMeshProUGUI m_toastText;
+    [SerializeField]
+    private Button m_closeToastButton;
     private Coroutine m_coroutine;
 
     private void Awake()
@@ -23,11 +26,30 @@ public class Toast : MonoBehaviour {
         m_Instance = this;
     }
 
+    private void Start()
+    {
+        if(m_coroutine == null)
+        {
+            m_toastPanel.SetActive(false);
+        }
+        m_closeToastButton.onClick.RemoveAllListeners();
+        m_closeToastButton.onClick.AddListener(() => {
+            if(m_coroutine != null)
+            {
+                StopCoroutine(m_coroutine);
+                m_toastPanel.SetActive(false);
+                m_toastText.text = "";
+            }
+        });
+    }
+
     public void ShowMessage(string message, float time = 3)
     {
         if(m_coroutine != null)
         {
             StopCoroutine(m_coroutine);
+            m_toastPanel.SetActive(false);
+            m_toastText.text = "";
         }
 
         m_coroutine = StartCoroutine(IEnumShowMessage(message, time));

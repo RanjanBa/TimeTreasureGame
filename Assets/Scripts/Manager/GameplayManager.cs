@@ -23,13 +23,14 @@ public class GameplayManager : MonoBehaviour
     private static readonly int r_numberOfTrapCardInHand = 2;
 
     private static int m_powerCardGMTOrLongValue = 0;
-
+    [SerializeField]
+    private bool m_showTimesBelowGMT = false;
     [SerializeField]
     private int m_initialNumberOfFuelCards = 10;
     [SerializeField]
     private GameObject m_circularPointPrefab, m_gmtPointPrefab;
     [SerializeField]
-    private Transform m_boardPointsContainer, m_boardGMTAndTimesContainer;
+    private Transform m_boardPointsContainer, m_boardGMTContainer, m_boardTimesContainer;
     [Header("References to Player : ")]
     [SerializeField]
     private Pawn m_playerPrefabs;
@@ -141,7 +142,7 @@ public class GameplayManager : MonoBehaviour
     {
         for (int i = 0; i < r_TotalLongitude; i++)
         {
-            GameObject gm = Instantiate(m_gmtPointPrefab, m_boardGMTAndTimesContainer);
+            GameObject gm = Instantiate(m_gmtPointPrefab, m_boardGMTContainer);
             TextMeshProUGUI textPro = gm.GetComponentInChildren<TextMeshProUGUI>();
             int time = i - 11;
             textPro.text = time + "";
@@ -152,7 +153,7 @@ public class GameplayManager : MonoBehaviour
     {
         for (int i = 0; i < r_TotalLongitude; i++)
         {
-            GameObject gm = Instantiate(m_gmtPointPrefab, m_boardGMTAndTimesContainer);
+            GameObject gm = Instantiate(m_gmtPointPrefab, m_boardTimesContainer);
             TextMeshProUGUI textPro = gm.GetComponentInChildren<TextMeshProUGUI>();
             m_timesText.Add(textPro);
         }
@@ -377,6 +378,8 @@ public class GameplayManager : MonoBehaviour
         m_pickCardView.ObscurePickCardView(false);
         GameplayCanvasManager.m_Instance.EnableOrDisableAllUpperButton(true);
         UpdateToNextPlayer();
+
+        m_boardTimesContainer.gameObject.SetActive(m_showTimesBelowGMT);
     }
 
     public void DistributeCards()

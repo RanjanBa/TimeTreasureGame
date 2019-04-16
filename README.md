@@ -55,7 +55,7 @@
 
 >  * __Unity Game Engine :__ It is a software-development environment designed for game developers to build video games. By this engine we can build games for any platform like android, pc, console etc.
 
->  * __Visual Studio 2017 :__ It is an integrated development environment used to developed computer programs, mobile apps.
+>  * __Visual Studio 2017 :__ It is an integrated development environment used to developed computer programs, mobile apps. C# programming language is used to develop the game.
 
 >  * __Firebase :__ It is a mobile and web application development platform. It is a google product which offers so many features like real-time database, basic analytics, authentication, storage etc. I used it for real-time database and authentication purpose.
 It is used because it has some functionality like listening to changes in the database and get the data changes in real-time i.e. it can sync the data across the client platform.

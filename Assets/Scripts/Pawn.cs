@@ -61,7 +61,7 @@ public class Pawn : MonoBehaviour
             else if (_coin != null)
             {
                 Debug.Log("Coin is found at position " + _position);
-                m_Point += _coin.Point;
+                m_Point += _coin.m_Point;
                 ResourceManager.m_Instance.RemoveCoin(_coin);
                 Destroy(_coin.gameObject);
                 _numberOfCoins++;

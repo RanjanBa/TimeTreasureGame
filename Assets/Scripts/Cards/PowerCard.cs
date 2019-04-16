@@ -151,7 +151,7 @@ public class PowerCard : Card
                         else if (_coin != null)
                         {
                             Debug.Log("Coin is found at position " + position);
-                            _owner.m_Point += _coin.Point;
+                            _owner.m_Point += _coin.m_Point;
                             ResourceManager.m_Instance.RemoveCoin(_coin);
                             Destroy(_coin.gameObject);
                             _numberOfCoins++;

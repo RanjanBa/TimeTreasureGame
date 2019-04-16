@@ -62,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cardNameText: {fileID: 114626552357247566}
   m_card: {fileID: 0}
+  m_playedCard: {fileID: 0}
   m_button: {fileID: 114108968641521442}
 --- !u!114 &114010375574463702
 MonoBehaviour:
@@ -83,7 +84,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: acee06928ae523646b79ac7897ffb798, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 250e8614d1eab5246ad8b8a78b9a3fc0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -201,8 +202,9 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: TIME TREASURE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4a65089419e138e4584746a5aa0ca3df, type: 2}
+  m_sharedMaterial: {fileID: 21896024067946248, guid: 4a65089419e138e4584746a5aa0ca3df,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

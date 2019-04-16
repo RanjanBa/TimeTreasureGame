@@ -20,7 +20,16 @@ public class ChoosePointsView : MonoBehaviour
         {
             return;
         }
-
+        m_chooseText.text = "";
+        if (_powerCard.m_powerType == PowerTypes.GMTMaster)
+        {
+            m_chooseText.text = "Choose GMT time as strategy";
+        }
+        else if(_powerCard.m_powerType == PowerTypes.Master)
+        {
+            m_chooseText.text = "Choose GMT Point where you want to jump";
+        }
+        
         foreach (var _value in m_values)
         {
             DestroyImmediate(_value.gameObject);

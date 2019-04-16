@@ -28,8 +28,8 @@ public class GameplayCanvasManager : MonoBehaviour
     private GameObject m_firstGameplayMenuPanel, m_gameplayBoardPanel, m_allPlayerInfoPanel, m_playerCardsViewPanel, m_buyingFuelCardPanel, m_pickCardPanel, m_playedCardViewPanel, m_winningPanel;
     [SerializeField]
     private Button m_menuButton, m_allPlayerInfoButton, m_showCardsButton, m_buyFuelCardButton, m_closePanelViewButton, m_showTreasureButton, m_closeTreasureInfoButton, m_exitGameButton, m_closeMenuButton;
-    [SerializeField]
-    private GameObject m_distributeCardMenu;
+    //[SerializeField]
+    //private GameObject m_distributeCardMenu;
     [SerializeField]
     private RotatingCircle m_rotatingCircularView;
     [SerializeField]
@@ -94,7 +94,7 @@ public class GameplayCanvasManager : MonoBehaviour
         }
 
         ShowGameplayCanvasMenu(GameplayCanvasMenu.FirstGameplayMenuPanel);
-        m_distributeCardMenu.SetActive(false);
+        //m_distributeCardMenu.SetActive(false);
         m_rotatingCircularView.gameObject.SetActive(false);
         m_distributeButton.gameObject.SetActive(true);
 
@@ -333,7 +333,7 @@ public class GameplayCanvasManager : MonoBehaviour
         }
         else if(GameManager.m_Instance.m_GameType == GameType.Offline)
         {
-            m_currentlyPlayingPlayerName.text = "It's " + _playerName + " turn";
+            m_currentlyPlayingPlayerName.text = "It is " + _playerName + "'s turn";
         }
     }
 
@@ -410,7 +410,7 @@ public class GameplayCanvasManager : MonoBehaviour
     public void ShowRotatingPanel(bool _isTrue)
     {
         m_rotatingCircularView.gameObject.SetActive(_isTrue);
-        m_distributeCardMenu.SetActive(!_isTrue);
+        //m_distributeCardMenu.SetActive(!_isTrue);
         m_rotatingCircularView.SetText("Shuffling...");
     }
 

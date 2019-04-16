@@ -65,6 +65,19 @@ namespace TimeTreasure
 
         private void Start()
         {
+            // First disable all gameobjectMenu page
+            // This should be run first
+            m_offlineOnlineMenuPage.SetActive(false);
+            m_signInSignUpMenuPage.SetActive(false);
+            m_signInPage.SetActive(false);
+            m_signUpPage.SetActive(false);
+            m_signUpGuestPage.SetActive(false);
+            m_createJoinGameMenu.SetActive(false);
+            m_createGamePage.SetActive(false);
+            m_joinGamePage.SetActive(false);
+            m_startGameMenuPage.SetActive(false);
+
+
             ShowMenuPage(MenuPage.OfflineOnlineMenuPage);
             GameManager.m_Instance.ResetGame();
             m_playerNameTextInput.text = "";
@@ -345,7 +358,8 @@ namespace TimeTreasure
             {
                 PlayerInfo _playerInfo = _playerInfos[i];
                 m_joinedPlayerInfos[i].m_playerNameText.text = _playerInfo.m_PlayerName;
-                m_joinedPlayerInfos[i].m_playerIndexText.text = "" + i;
+                //If you want to show player index
+                //m_joinedPlayerInfos[i].m_playerIndexText.text = "" + (i + 1);
                 m_joinedPlayerInfos[i].m_removeButton.interactable = true;
 
                 if (GameManager.m_Instance.m_GameType == GameType.Offline)
