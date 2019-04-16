@@ -15,9 +15,7 @@ public sealed class AuthenticationManager : MonoBehaviour
     {
         get
         {
-            return m_auth == null
-                ? null :
-              m_auth.CurrentUser;
+            return m_user;
         }
     }
 
@@ -50,7 +48,7 @@ public sealed class AuthenticationManager : MonoBehaviour
             bool signedIn = m_user != m_auth.CurrentUser && m_auth.CurrentUser != null;
             if (!signedIn && m_user != null)
             {
-                Toast.m_Instance.ShowMessage("Signed out " + m_user.UserId, 10);
+                Toast.m_Instance.ShowMessage("Signed out" + m_user.UserId, 10);
                 MenuController.m_Instance.ShowMenuPage(MenuPage.OfflineOnlineMenuPage);
                 GameManager.m_Instance.m_OwnerInfo = null;
                 m_user = null;
@@ -62,8 +60,6 @@ public sealed class AuthenticationManager : MonoBehaviour
                 Toast.m_Instance.ShowMessage("Signed in " + m_user.UserId, 10);
                 MenuController.m_Instance.OnAuthenticatinChangedUpdatePlayerInfo(true);
             }
-
-            
         }
     }
 
@@ -175,7 +171,10 @@ public sealed class AuthenticationManager : MonoBehaviour
 
     public void SignOut()
     {
-        m_auth.SignOut();
-        MenuController.m_Instance.OnAuthenticatinChangedUpdatePlayerInfo(false);
+        if (m_auth != null)
+        {
+            m_auth.SignOut();
+            MenuController.m_Instance.OnAuthenticatinChangedUpdatePlayerInfo(false);
+        }
     }
 }

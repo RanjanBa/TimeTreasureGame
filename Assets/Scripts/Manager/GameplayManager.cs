@@ -2,6 +2,7 @@
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using UnityEngine.UI;
 
 public enum PlayedCardState
 {

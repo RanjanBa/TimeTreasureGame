@@ -121,6 +121,7 @@ namespace TimeTreasure
             });
             m_onlineButton.onClick.AddListener(() =>
             {
+                Toast.m_Instance.ShowMessage("Online button is clicked");
                 if(Application.platform != RuntimePlatform.Android)
                 {
                     Toast.m_Instance.ShowMessage("Currently not implemented for " + Application.platform.ToString() + " platform");
@@ -530,7 +531,7 @@ namespace TimeTreasure
                 m_avatarSignOutButton.gameObject.SetActive(false);
                 m_playerNameText.gameObject.SetActive(false);
             }
-            else
+            else if (AuthenticationManager.m_Instance.m_User != null)
             {
                 m_avatarSignOutButton.gameObject.SetActive(true);
                 m_playerNameText.gameObject.SetActive(true);
