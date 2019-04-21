@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class BuyFuelCardView : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI m_fuelNumberText, m_countFuelText;
+    private TextMeshProUGUI m_playerFuelNumberText, m_countFuelText;
     [SerializeField]
     private Button m_upButton, m_downButton, m_buyButton, m_cancelButton;
     [SerializeField]
@@ -16,7 +16,7 @@ public class BuyFuelCardView : MonoBehaviour
     public void ShowBuyPanel(Pawn _pawn)
     {
         m_rotatingCircle.gameObject.SetActive(false);
-        m_fuelNumberText.text = "" + _pawn.m_PawnInfo.m_NumberOfFuelCards;
+        m_playerFuelNumberText.text = "" + _pawn.m_PawnInfo.m_NumberOfFuelCards;
         m_countFuelText.text = "" + m_usedPoint * GameplayManager.r_numberOfFuelCardPerPoint;
         m_upButton.onClick.RemoveAllListeners();
         m_downButton.onClick.RemoveAllListeners();

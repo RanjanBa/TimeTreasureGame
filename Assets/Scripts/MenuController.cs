@@ -77,11 +77,13 @@ namespace TimeTreasure
             m_joinGamePage.SetActive(false);
             m_startGameMenuPage.SetActive(false);
 
-
             ShowMenuPage(MenuPage.OfflineOnlineMenuPage);
             GameManager.m_Instance.ResetGame();
             m_playerNameTextInput.text = "";
             m_playerNameText.text = "";
+
+            m_backButton.onClick.AddListener(() => OnBackButtonPressed());
+
             if (GameManager.m_Instance.m_JoinedPlayersInfo.Count < 4)
             {
                 m_addPlayerButton.interactable = true;
@@ -103,7 +105,6 @@ namespace TimeTreasure
                 }
             }
 
-            m_backButton.onClick.AddListener(() => OnBackButtonPressed());
             m_offlineButton.onClick.AddListener(() =>
             {
                 GameManager.m_Instance.m_GameInfo = new GameInfo("Offline Game", "");
@@ -127,10 +128,12 @@ namespace TimeTreasure
                     Toast.m_Instance.ShowMessage("Currently not implemented for " + Application.platform.ToString() + " platform");
                     return;
                 }
+
                 if(GameManager.m_Instance.IsConnectedToInternet == false)
                 {
                     Toast.m_Instance.ShowMessage("You are not connected to the internet");
                 }
+
                 GameManager.m_Instance.m_GameType = GameType.Online;
                 if (AuthenticationManager.m_Instance.m_User == null)
                 {
@@ -208,6 +211,7 @@ namespace TimeTreasure
 
         private void OnBackButtonPressed()
         {
+            Toast.m_Instance.ShowMessage("Back button pressed");
             m_gotoJoinGamePageButton.interactable = true;
             if (GameManager.m_Instance.m_GameInfo != null && GameManager.m_Instance.m_GameType == GameType.Online)
             {
@@ -215,7 +219,7 @@ namespace TimeTreasure
                 FirebaseRealtimeDatabase.m_Instance.UnSubscribeOnGameStateChangedEventHandler(GameManager.m_Instance.m_GameInfo);
             }
 
-            if (m_stackOfGameobjectForBack.Count > 0)
+            if (m_stackOfGameobjectForBack.Count > 0 && m_currentlyActivePage != null)
             {
                 m_currentlyActivePage.SetActive(false);
                 m_currentlyActivePage = m_stackOfGameobjectForBack.Pop();
@@ -462,9 +466,9 @@ namespace TimeTreasure
                     }
                     else
                     {
+                        m_addPlayerPanel.SetActive(false);
                         m_stackOfGameobjectForBack.Clear();
                         FirebaseRealtimeDatabase.m_Instance.GetAllJoinedPlayer(GameManager.m_Instance.m_GameInfo.m_CreatorUID);
-                        m_addPlayerPanel.SetActive(false);
                     }
                     UpdateJoinedPlayerInfo(GameManager.m_Instance.m_JoinedPlayersInfo);
                     break;

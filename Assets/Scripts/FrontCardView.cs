@@ -23,7 +23,7 @@ public sealed class FrontCardView : MonoBehaviour
     private Image m_mainCardImage, m_upperImage, m_midImage;
     private Pawn m_owner;
 
-    public void UpdateCardView(Pawn _owner, Card _card, bool _enableButtton = true)
+    public void UpdateCardView(Pawn _owner, Card _card, UnityEngine.Events.UnityAction _action = null, bool _enableButtton = true)
     {
         if (_card == null)
             return;
@@ -57,21 +57,26 @@ public sealed class FrontCardView : MonoBehaviour
             m_mainCardImage.color = CardManager.m_Instance.m_FuelCardColor;
             m_upperImage.color = m_midImage.color = CardManager.m_Instance.m_FuelCardMidColor;
             m_midImage.gameObject.SetActive(false);
-            return;
         }
 
         m_midImage.gameObject.SetActive(true);
         m_button.onClick.RemoveAllListeners();
+
         if (_enableButtton)
         {
             m_button.onClick.AddListener(() => OnCardClick());
+
+            if (_action != null)
+            {
+                m_button.onClick.AddListener(_action);
+            }
         }
         m_button.interactable = _enableButtton;
     }
 
     private void OnCardClick()
     {
-        if(m_card == null)
+        if (m_card == null)
         {
             Debug.LogWarning("Card is null... Set the reference...");
             return;
@@ -82,15 +87,20 @@ public sealed class FrontCardView : MonoBehaviour
             Debug.LogWarning("Owner is null... Set the reference...");
             return;
         }
-        if(m_card.GetType() == typeof(PowerCard))
+        if (m_card.GetType() == typeof(PowerCard))
         {
-            if(((PowerCard)m_card).m_powerType == PowerTypes.GMTMaster || ((PowerCard)m_card).m_powerType == PowerTypes.Master)
+            Debug.Log("Power card is pressed...");
+            Toast.m_Instance.ShowMessage("Power card is pressed");
+            if (((PowerCard)m_card).m_powerType == PowerTypes.GMTMaster || ((PowerCard)m_card).m_powerType == PowerTypes.Master)
             {
                 GameplayManager.m_Instance.m_ChoosePointsView.ShowAllChoosePoints(m_owner, (PowerCard)m_card);
                 return;
             }
         }
 
-        GameplayManager.m_Instance.OnCardPlayed(m_owner, m_card);
+        if (m_card.GetType() != typeof(FuelCard))
+        {
+            GameplayManager.m_Instance.OnCardPlayed(m_owner, m_card);
+        }
     }
 }

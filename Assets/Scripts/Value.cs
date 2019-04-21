@@ -25,7 +25,7 @@ public class Value : MonoBehaviour
             }
             else if(m_value < 12)
             {
-                _text = m_value + "AM";
+                _text = m_value + " AM";
             }
             else if(m_value == 12)
             {

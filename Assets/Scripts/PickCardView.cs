@@ -27,7 +27,7 @@ public class PickCardView : MonoBehaviour
 
         m_rearCardViews.Clear();
 
-        m_playedFrontCardView.UpdateCardView(_owner, _playedCard, false);
+        m_playedFrontCardView.UpdateCardView(_owner, _playedCard, _enableButtton: false);
 
         if (_playedCard.GetType() == typeof(PowerCard) || _playedCard.GetType() == typeof(HourCard))
         {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChoosePointsView : MonoBehaviour
 {
@@ -9,12 +10,18 @@ public class ChoosePointsView : MonoBehaviour
     [SerializeField]
     private Value m_choosePointPrefab;
     [SerializeField]
-    private Transform m_container;
+    private Transform m_choosePointContainer;
+    [SerializeField]
+    private Button m_closeButton;
 
     private List<Value> m_values = new List<Value>();
 
     public void ShowAllChoosePoints(Pawn _owner, PowerCard _powerCard)
     {
+        m_closeButton.onClick.RemoveAllListeners();
+        m_closeButton.onClick.AddListener(() => {
+            gameObject.SetActive(false);
+        });
         gameObject.SetActive(true);
         if (_powerCard.m_powerType == PowerTypes.LongitudeMaster || _powerCard.m_powerType == PowerTypes.PosX_NegX || _powerCard.m_powerType == PowerTypes.ThreePoints)
         {
@@ -39,7 +46,7 @@ public class ChoosePointsView : MonoBehaviour
 
         for (int i = 1; i <= GameplayManager.r_TotalLongitude; i++)
         {
-            Value _value = Instantiate(m_choosePointPrefab, m_container);
+            Value _value = Instantiate(m_choosePointPrefab, m_choosePointContainer);
             _value.UpdateValue(_owner, _powerCard, i);
             m_values.Add(_value);
         }

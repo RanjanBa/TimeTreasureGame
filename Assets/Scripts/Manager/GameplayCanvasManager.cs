@@ -25,9 +25,11 @@ public class GameplayCanvasManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI m_currentTurnPlayerText, m_currentTimeAtGMT0Text, m_currentlyPlayingPlayerName, m_remainingCoinText, m_remainingTreasureText;
     [SerializeField]
+    private GameObject m_containerPanel;
+    [SerializeField]
     private GameObject m_firstGameplayMenuPanel, m_gameplayBoardPanel, m_allPlayerInfoPanel, m_playerCardsViewPanel, m_buyingFuelCardPanel, m_pickCardPanel, m_playedCardViewPanel, m_winningPanel;
     [SerializeField]
-    private Button m_menuButton, m_allPlayerInfoButton, m_showCardsButton, m_buyFuelCardButton, m_closePanelViewButton, m_showTreasureButton, m_closeTreasureInfoButton, m_exitGameButton, m_closeMenuButton;
+    private Button m_menuButton, m_allPlayerInfoButton, m_showMyCardsButton, m_buyFuelCardButton, m_closePanelViewButton, m_showTreasureButton, m_closeTreasureInfoButton, m_exitGameButton, m_closeMenuButton;
     //[SerializeField]
     //private GameObject m_distributeCardMenu;
     [SerializeField]
@@ -53,7 +55,6 @@ public class GameplayCanvasManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI m_collectedCoinTreasureText;
 
-    private GameObject m_closeGameObject;
     private List<PlayerGameInfo> m_playerGameInfos = new List<PlayerGameInfo>();
 
     private List<TextMeshProUGUI> m_winingPlayerTexts = new List<TextMeshProUGUI>();
@@ -98,23 +99,10 @@ public class GameplayCanvasManager : MonoBehaviour
         m_rotatingCircularView.gameObject.SetActive(false);
         m_distributeButton.gameObject.SetActive(true);
 
-        if (m_closeGameObject == null)
-        {
-            m_closePanelViewButton.interactable = false;
-            m_closePanelViewButton.gameObject.SetActive(false);
-        }
-        else
-        {
-            m_closePanelViewButton.interactable = true;
-            m_closePanelViewButton.gameObject.SetActive(true);
-        }
-
         m_closePanelViewButton.onClick.AddListener(() =>
         {
-            if (m_closeGameObject != null)
-            {
-                ShowGameplayCanvasMenu(GameplayCanvasMenu.GameplayBoardPanel);
-            }
+            m_containerPanel.SetActive(false);
+            EnableOrDisableAllUpperButton(true);
         });
 
         if (GameManager.m_Instance == null)
@@ -141,16 +129,15 @@ public class GameplayCanvasManager : MonoBehaviour
         EnableOrDisableAllUpperButton(false);
         m_allPlayerInfoButton.onClick.AddListener(() =>
         {
-            m_closeGameObject = m_allPlayerInfoPanel;
             m_allPlayerInfoButton.interactable = false;
             UpdateAllPlayerGameInfo();
             ShowGameplayCanvasMenu(GameplayCanvasMenu.AllPlayerInfoPanel);
         });
 
-        m_showCardsButton.onClick.AddListener(() =>
+        m_showMyCardsButton.onClick.AddListener(() =>
         {
-            m_closeGameObject = m_playerCardsViewPanel;
-            m_showCardsButton.interactable = false;
+            ShowGameplayCanvasMenu(GameplayCanvasMenu.PlayerCardsViewPanel);
+            m_showMyCardsButton.interactable = false;
             if (GameManager.m_Instance.m_GameType == GameType.Offline)
             {
                 UpdateAllCardsOfPlayer(GameplayManager.m_Instance.m_CurrentPawn);
@@ -160,11 +147,6 @@ public class GameplayCanvasManager : MonoBehaviour
                 Pawn _pawn = GameplayManager.m_Instance.m_PawnsDict[GameManager.m_Instance.m_OwnerInfo.m_PlayerUID];
                 UpdateAllCardsOfPlayer(_pawn);
             }
-            else
-            {
-                return;
-            }
-            ShowGameplayCanvasMenu(GameplayCanvasMenu.PlayerCardsViewPanel);
         });
 
         m_buyFuelCardButton.onClick.AddListener(() =>
@@ -204,18 +186,18 @@ public class GameplayCanvasManager : MonoBehaviour
         {
             m_remainingCoinText.text = ResourceManager.m_Instance.RemainingCoinCount + "";
             m_remainingTreasureText.text = ResourceManager.m_Instance.RemainingTreasureCount + "";
-            m_menuAnimation.clip = m_menuAnimation.GetClip("MenuCloseAnimation");
+            m_menuAnimation.clip = m_menuAnimation.GetClip("menuCloseAnimation");
             m_menuAnimation.Play();
             m_menuButton.interactable = false;
             m_treasureInfoAnimation.gameObject.SetActive(true);
-            m_treasureInfoAnimation.clip = m_treasureInfoAnimation.GetClip("TreasureInfoOpenAnimation");
+            m_treasureInfoAnimation.clip = m_treasureInfoAnimation.GetClip("treasureInfoOpenAnimation");
             m_treasureInfoAnimation.Play();
         });
 
         m_closeTreasureInfoButton.onClick.AddListener(() =>
         {
             m_menuButton.interactable = true;
-            m_treasureInfoAnimation.clip = m_treasureInfoAnimation.GetClip("TreasureInfoCloseAnimation");
+            m_treasureInfoAnimation.clip = m_treasureInfoAnimation.GetClip("treasureInfoCloseAnimation");
             m_treasureInfoAnimation.Play();
         });
 
@@ -241,7 +223,7 @@ public class GameplayCanvasManager : MonoBehaviour
             m_menuAnimation.gameObject.SetActive(true);
             if (!m_menuAnimation.isPlaying)
             {
-                m_menuAnimation.clip = m_menuAnimation.GetClip("MenuOpenAnimation");
+                m_menuAnimation.clip = m_menuAnimation.GetClip("menuOpenAnimation");
                 m_menuAnimation.Play();
             }
         });
@@ -256,7 +238,7 @@ public class GameplayCanvasManager : MonoBehaviour
         {
             if (!m_menuAnimation.isPlaying)
             {
-                m_menuAnimation.clip = m_menuAnimation.GetClip("MenuCloseAnimation");
+                m_menuAnimation.clip = m_menuAnimation.GetClip("menuCloseAnimation");
                 m_menuAnimation.Play();
             }
         });
@@ -314,7 +296,7 @@ public class GameplayCanvasManager : MonoBehaviour
             _timeText = _time % 12 + " PM";
         }
 
-        m_currentTimeAtGMT0Text.text = "Current Time at GMT 0  : " + _timeText;
+        m_currentTimeAtGMT0Text.text = "" + _timeText;
     }
 
     public void UpdateCurrentPlayingPlayerName(string _playerName, bool _isVisible = true)
@@ -351,59 +333,56 @@ public class GameplayCanvasManager : MonoBehaviour
         switch (_gameplayCanvasMenu)
         {
             case GameplayCanvasMenu.FirstGameplayMenuPanel:
+                EnableOrDisableAllUpperButton(false);
                 m_firstGameplayMenuPanel.SetActive(true);
+                m_containerPanel.SetActive(false);
                 break;
             case GameplayCanvasMenu.GameplayBoardPanel:
+                EnableOrDisableAllUpperButton(true);
+                m_containerPanel.SetActive(false);
                 m_gameplayBoardPanel.SetActive(true);
-                m_closeGameObject = null;
                 break;
             case GameplayCanvasMenu.AllPlayerInfoPanel:
-                m_closeGameObject = m_allPlayerInfoPanel;
+                EnableOrDisableAllUpperButton(false);
+                m_containerPanel.SetActive(true);
                 m_gameplayBoardPanel.SetActive(true);
                 m_allPlayerInfoPanel.SetActive(true);
                 break;
             case GameplayCanvasMenu.PlayerCardsViewPanel:
+                EnableOrDisableAllUpperButton(false);
                 m_gameplayBoardPanel.SetActive(true);
                 m_playerCardsViewPanel.SetActive(true);
-                m_closeGameObject = m_playerCardsViewPanel;
+                m_containerPanel.SetActive(true);
                 break;
             case GameplayCanvasMenu.BuyingFuelCardPanel:
+                EnableOrDisableAllUpperButton(false);
                 m_gameplayBoardPanel.SetActive(true);
                 m_buyingFuelCardPanel.SetActive(true);
-                m_closeGameObject = m_buyingFuelCardPanel;
+                m_containerPanel.SetActive(true);
                 break;
             case GameplayCanvasMenu.PickCardPanel:
+                EnableOrDisableAllUpperButton(false);
                 m_gameplayBoardPanel.SetActive(true);
                 m_pickCardPanel.SetActive(true);
-                m_closeGameObject = null;
+                m_containerPanel.SetActive(true);
                 break;
             case GameplayCanvasMenu.PlayedCardViewPanel:
+                EnableOrDisableAllUpperButton(false);
                 m_gameplayBoardPanel.SetActive(true);
                 m_playedCardViewPanel.SetActive(true);
                 m_playedCardAnimation.Play();
-                m_closeGameObject = m_playedCardViewPanel;
+                m_containerPanel.SetActive(true);
                 break;
             case GameplayCanvasMenu.WinningPanel:
                 m_gameplayBoardPanel.SetActive(false);
                 m_winningPanel.SetActive(true);
-                m_closeGameObject = null;
+                m_containerPanel.SetActive(false);
+                EnableOrDisableAllUpperButton(false);
                 break;
             default:
                 m_firstGameplayMenuPanel.SetActive(true);
+                m_containerPanel.SetActive(false);
                 break;
-        }
-
-        if (m_closeGameObject != null)
-        {
-            m_closePanelViewButton.interactable = true;
-            m_closePanelViewButton.gameObject.SetActive(true);
-            EnableOrDisableAllUpperButton(false);
-        }
-        else
-        {
-            m_closePanelViewButton.interactable = false;
-            m_closePanelViewButton.gameObject.SetActive(false);
-            EnableOrDisableAllUpperButton(true);
         }
     }
 
@@ -417,7 +396,7 @@ public class GameplayCanvasManager : MonoBehaviour
     public void EnableOrDisableAllUpperButton(bool _enable)
     {
         m_allPlayerInfoButton.interactable = _enable;
-        m_showCardsButton.interactable = _enable;
+        m_showMyCardsButton.interactable = _enable;
         m_buyFuelCardButton.interactable = _enable;
     }
 

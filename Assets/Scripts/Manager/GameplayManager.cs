@@ -304,7 +304,7 @@ public class GameplayManager : MonoBehaviour
 
             if(GameManager.m_Instance.m_GameType == GameType.Offline)
             {
-                m_playedCardFrontView.UpdateCardView(_owner, _fuelCard, false);
+                m_playedCardFrontView.UpdateCardView(_owner, _fuelCard, _enableButtton: false);
                 GameplayCanvasManager.m_Instance.ShowGameplayCanvasMenu(GameplayCanvasMenu.PlayedCardViewPanel);
                 m_cardPlayedPlayerNameText.text = "Card Played Player Name : " + _owner.m_PawnInfo.m_PlayerInfo.m_PlayerName;
                 _fuelCard.OnPlayed(_owner, _numberFuelCards);
@@ -350,7 +350,7 @@ public class GameplayManager : MonoBehaviour
             }
 
             m_cardPlayedPlayerNameText.text = "Card Played Player Name : " + _owner.m_PawnInfo.m_PlayerInfo.m_PlayerName;
-            m_playedCardFrontView.UpdateCardView(_owner, _playedCard, false);
+            m_playedCardFrontView.UpdateCardView(_owner, _playedCard, _enableButtton: false);
         }
         else if (GameManager.m_Instance.m_GameType == GameType.Online)
         {
@@ -463,7 +463,7 @@ public class GameplayManager : MonoBehaviour
     {
         m_pickCardView.ObscurePickCardView(false);
         m_cardPlayedPlayerNameText.text = "Card Played Player Name : " + _owner.m_PawnInfo.m_PlayerInfo.m_PlayerName;
-        m_playedCardFrontView.UpdateCardView(_owner, _playedCard, false);
+        m_playedCardFrontView.UpdateCardView(_owner, _playedCard, _enableButtton: false);
         GameplayCanvasManager.m_Instance.EnableOrDisableAllUpperButton(true);
         GameplayCanvasManager.m_Instance.ShowGameplayCanvasMenu(GameplayCanvasMenu.PlayedCardViewPanel);
         if (_playedCard.GetType() == typeof(PowerCard))
@@ -485,7 +485,7 @@ public class GameplayManager : MonoBehaviour
 
     public void OnFuelCardPlayedFromDatabase(Pawn _owner, FuelCard _fuelCard, int _numberOfFuelCard)
     {
-        m_playedCardFrontView.UpdateCardView(_owner, _fuelCard, false);
+        m_playedCardFrontView.UpdateCardView(_owner, _fuelCard, _enableButtton: false);
         m_cardPlayedPlayerNameText.text = "Card Played Player Name : " + _owner.m_PawnInfo.m_PlayerInfo.m_PlayerName;
         GameplayCanvasManager.m_Instance.EnableOrDisableAllUpperButton(true);
         GameplayCanvasManager.m_Instance.ShowGameplayCanvasMenu(GameplayCanvasMenu.PlayedCardViewPanel);
