@@ -1,19 +1,28 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 // This will manage coins and treasures
 public class ResourceManager : MonoBehaviour
 {
-    public static readonly string r_CoinKey = "coins";
-    public static readonly string r_TreasureKey = "treasures";
+    public const string r_CoinKey = "coins";
+    public const string r_TreasureKey = "treasures";
 
     public static ResourceManager m_Instance { get; private set; }
 
-    [SerializeField, Range(1, 30)]
+    private const int r_maxCoin = 30;
+    private const int r_maxTreasure = 10;
+
+    [SerializeField, Range(1, r_maxCoin)]
     private int m_totalCoinNumber = 2;
-    [SerializeField, Range(1, 10)]
+    [SerializeField, Range(1, r_maxTreasure)]
     private int m_totalTreasureNumber = 1;
+    [SerializeField]
+    private Slider m_coinSlider, m_treasureSlider;
+    [SerializeField]
+    private TextMeshProUGUI m_coinCountText, m_treasureCountText;
     [SerializeField]
     private Treasure m_treasurePrefab;
     [SerializeField]
@@ -59,6 +68,111 @@ public class ResourceManager : MonoBehaviour
         m_Instance = this;
         m_remainingTreasures = new List<Treasure>();
         m_remainingCoins = new List<Coin>();
+    }
+
+    private void Start()
+    {
+        if (GameManager.m_Instance == null)
+        {
+            Debug.LogWarning("GameManager instance is null");
+            return;
+        }
+
+        if (GameManager.m_Instance.m_GameType == GameType.Online)
+        {
+            if (GameManager.m_Instance.m_GameInfo.m_CreatorUID == AuthenticationManager.m_Instance.m_User.UserId)
+            {
+                if (m_coinSlider != null)
+                {
+                    m_coinSlider.interactable = true;
+                    m_coinSlider.onValueChanged.AddListener((val) =>
+                    {
+                        SetTotalCoinNumber(Mathf.RoundToInt(val));
+                    });
+                }
+
+                if (m_treasureSlider != null)
+                {
+                    m_treasureSlider.interactable = true;
+                    
+                    m_treasureSlider.onValueChanged.AddListener((val) =>
+                    {
+                        SetTotalTreasureNumber(Mathf.RoundToInt(val));
+                    });
+                }
+            }
+            else
+            {
+                if (m_coinSlider != null)
+                {
+                    m_coinSlider.interactable = false;
+                    m_coinSlider.value = m_totalCoinNumber;
+                }
+
+                if (m_treasureSlider != null)
+                {
+                    m_treasureSlider.interactable = false;
+                    m_treasureSlider.value = m_totalTreasureNumber;
+                }
+            }
+        }
+        else
+        {
+            if (m_coinSlider != null)
+            {
+                m_coinSlider.interactable = true;
+                m_coinSlider.value = m_totalCoinNumber;
+                m_coinSlider.onValueChanged.AddListener((val) =>
+                {
+                    SetTotalCoinNumber(Mathf.RoundToInt(val));
+                });
+            }
+
+            if (m_treasureSlider != null)
+            {
+                m_treasureSlider.interactable = true;
+                m_treasureSlider.value = m_totalTreasureNumber;
+                m_treasureSlider.onValueChanged.AddListener((val) =>
+                {
+                    SetTotalTreasureNumber(Mathf.RoundToInt(val));
+                });
+            }
+        }
+
+        if (m_coinSlider != null)
+        {
+            m_coinSlider.minValue = 1;
+            m_coinSlider.maxValue = r_maxCoin;
+            m_coinSlider.value = m_totalCoinNumber;
+        }
+
+        if (m_treasureSlider != null)
+        {
+            m_treasureSlider.minValue = 1;
+            m_treasureSlider.maxValue = r_maxTreasure;
+            m_treasureSlider.value = m_totalTreasureNumber;
+        }
+
+        SetTotalCoinNumber(m_totalCoinNumber);
+        SetTotalTreasureNumber(m_totalTreasureNumber);
+    }
+
+    private void SetTotalCoinNumber(int _coinNumber)
+    {
+        m_totalCoinNumber = _coinNumber;
+        if (m_coinCountText != null)
+        {
+            m_coinCountText.text = m_totalCoinNumber + "";
+        }
+    }
+
+    private void SetTotalTreasureNumber(int _treasureNumber)
+    {
+        m_totalTreasureNumber = _treasureNumber;
+        if (m_treasureCountText != null)
+        {
+            m_treasureCountText.text = m_totalTreasureNumber + "";
+        }
     }
 
     public void GenerateAllCoinsAndTreasures()

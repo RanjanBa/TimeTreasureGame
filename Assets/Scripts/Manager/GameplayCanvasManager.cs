@@ -23,7 +23,9 @@ public class GameplayCanvasManager : MonoBehaviour
     public static GameplayCanvasManager m_Instance { get; private set; }
 
     [SerializeField]
-    private TextMeshProUGUI m_currentTurnPlayerText, m_currentTimeAtGMT0Text, m_currentlyPlayingPlayerName, m_remainingCoinText, m_remainingTreasureText;
+    private Image m_avatarHolder;
+    [SerializeField]
+    private TextMeshProUGUI m_currentPlayerText, m_currentTimeAtGMT0Text, m_currentlyPlayingPlayerName, m_remainingCoinText, m_remainingTreasureText;
     [SerializeField]
     private GameObject m_containerPanel;
     [SerializeField]
@@ -87,11 +89,11 @@ public class GameplayCanvasManager : MonoBehaviour
         UpdateCurrentPlayingPlayerName("", false);
         if (GameManager.m_Instance.m_GameType == GameType.Offline)
         {
-            UpdateCurrentPlayerName("");
+            UpdatePlayerUpperLeftAvatar(Color.blue, _isShow: false);
         }
         else if (GameManager.m_Instance.m_GameType == GameType.Online)
         {
-            UpdateCurrentPlayerName(GameManager.m_Instance.m_OwnerInfo.m_PlayerName);
+            UpdatePlayerUpperLeftAvatar(GameManager.m_Instance.m_OwnerInfo.m_PlayerColorCode, GameManager.m_Instance.m_OwnerInfo.m_PlayerName);
         }
 
         ShowGameplayCanvasMenu(GameplayCanvasMenu.FirstGameplayMenuPanel);
@@ -270,9 +272,12 @@ public class GameplayCanvasManager : MonoBehaviour
         m_playerAllCardsView.UpdateCards(_pawn);
     }
 
-    public void UpdateCurrentPlayerName(string _playerName)
+    public void UpdatePlayerUpperLeftAvatar(Color _color, string _playerName = "", bool _isShow = true)
     {
-        m_currentTurnPlayerText.text = _playerName;
+        m_avatarHolder.color = _color;
+        m_currentPlayerText.text = _playerName;
+        m_avatarHolder.gameObject.SetActive(_isShow);
+        m_currentPlayerText.gameObject.SetActive(_isShow);
     }
 
     public void UpdateCurrentTimeOfGMT0(int _time)

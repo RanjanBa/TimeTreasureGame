@@ -33,6 +33,8 @@ public class GuestSignUp : MonoBehaviour {
 
     public void EnableGuestSignUpButton()
     {
+        Toast.m_Instance.ShowMessage("Enable button sign guest1");
         m_guestSignUpButton.interactable = true;
+        Toast.m_Instance.ShowMessage("Enable button sign guest2");
     }
 }

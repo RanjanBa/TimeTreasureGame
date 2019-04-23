@@ -77,7 +77,6 @@ namespace TimeTreasure
             m_joinGamePage.SetActive(false);
             m_startGameMenuPage.SetActive(false);
 
-            ShowMenuPage(MenuPage.OfflineOnlineMenuPage);
             GameManager.m_Instance.ResetGame();
             m_playerNameTextInput.text = "";
             m_playerNameText.text = "";
@@ -122,22 +121,26 @@ namespace TimeTreasure
             });
             m_onlineButton.onClick.AddListener(() =>
             {
-                Toast.m_Instance.ShowMessage("Online button is clicked");
-                if(Application.platform != RuntimePlatform.Android)
+                if (Application.platform != RuntimePlatform.Android)
                 {
                     Toast.m_Instance.ShowMessage("Currently not implemented for " + Application.platform.ToString() + " platform");
                     return;
                 }
-
-                if(GameManager.m_Instance.IsConnectedToInternet == false)
+                if (GameManager.m_Instance.IsConnectedToInternet == false)
                 {
                     Toast.m_Instance.ShowMessage("You are not connected to the internet");
                 }
-
                 GameManager.m_Instance.m_GameType = GameType.Online;
+                if (AuthenticationManager.m_Instance == null)
+                {
+                    Toast.m_Instance.ShowMessage("Authentication is null");
+                    return;
+                }
+
+                AuthenticationManager.m_Instance.EnableAuthenticationButtons();
+
                 if (AuthenticationManager.m_Instance.m_User == null)
                 {
-                    AuthenticationManager.m_Instance.EnableAuthenticationButtons();
                     ShowMenuPage(MenuPage.SignInSignUpMenuPage);
                     OnAuthenticatinChangedUpdatePlayerInfo(false);
                 }
@@ -179,7 +182,8 @@ namespace TimeTreasure
                 }
             });
             m_addPlayerButton.onClick.AddListener(() => OnAddPlayerButtonPressed());
-            m_startGameButton.onClick.AddListener(() => {
+            m_startGameButton.onClick.AddListener(() =>
+            {
                 m_startGameButton.interactable = false;
                 if (GameManager.m_Instance.m_GameType == GameType.Offline)
                 {
@@ -213,6 +217,7 @@ namespace TimeTreasure
         {
             Toast.m_Instance.ShowMessage("Back button pressed");
             m_gotoJoinGamePageButton.interactable = true;
+            
             if (GameManager.m_Instance.m_GameInfo != null && GameManager.m_Instance.m_GameType == GameType.Online)
             {
                 FirebaseRealtimeDatabase.m_Instance.UnSubscribeJoinOrRemovePlayerEventHandler(GameManager.m_Instance.m_GameInfo);
@@ -233,6 +238,11 @@ namespace TimeTreasure
                 {
                     m_backButton.gameObject.SetActive(false);
                 }
+            }
+
+            if (AuthenticationManager.m_Instance != null)
+            {
+                AuthenticationManager.m_Instance.EnableAuthenticationButtons();
             }
         }
 
@@ -363,8 +373,16 @@ namespace TimeTreasure
             {
                 PlayerInfo _playerInfo = _playerInfos[i];
                 m_joinedPlayerInfos[i].m_playerNameText.text = _playerInfo.m_PlayerName;
-                //If you want to show player index
-                //m_joinedPlayerInfos[i].m_playerIndexText.text = "" + (i + 1);
+                _playerInfo.m_PlayerColorCode = m_joinedPlayerInfos[i].m_PlayerColorCode;
+
+                if (GameManager.m_Instance.m_OwnerInfo != null)
+                {
+                    if (GameManager.m_Instance.m_OwnerInfo.m_PlayerUID == _playerInfo.m_PlayerUID)
+                    {
+                        GameManager.m_Instance.m_OwnerInfo.m_PlayerColorCode = m_joinedPlayerInfos[i].m_PlayerColorCode;
+                    }
+                }
+
                 m_joinedPlayerInfos[i].m_removeButton.interactable = true;
 
                 if (GameManager.m_Instance.m_GameType == GameType.Offline)
@@ -530,7 +548,7 @@ namespace TimeTreasure
 
         public void OnAuthenticatinChangedUpdatePlayerInfo(bool _isTrue)
         {
-            if (_isTrue == false)
+            if (_isTrue == false || AuthenticationManager.m_Instance == null)
             {
                 m_avatarSignOutButton.gameObject.SetActive(false);
                 m_playerNameText.gameObject.SetActive(false);

@@ -72,9 +72,20 @@ public sealed class AuthenticationManager : MonoBehaviour
 
     public void EnableAuthenticationButtons()
     {
-        m_signIn.EnableSignInButton();
-        m_signUp.EnableSignUpButton();
-        m_guestSignUp.EnableGuestSignUpButton();
+        if (m_signIn != null)
+        {
+            m_signIn.EnableSignInButton();
+        }
+
+        if (m_signUp != null)
+        {
+            m_signUp.EnableSignUpButton();
+        }
+
+        if (m_guestSignUp != null)
+        {
+            m_guestSignUp.EnableGuestSignUpButton();
+        }
     }
 
     public void SignIn(string email, string password)

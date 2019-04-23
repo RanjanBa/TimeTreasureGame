@@ -167,10 +167,19 @@ public class GameplayManager : MonoBehaviour
             Pawn _pawn = Instantiate(m_playerPrefabs, m_BoardGMTPoints[0, _pawnInfos[i].m_InstantiationPosition.y]) as Pawn;
             _pawn.m_PawnInfo = _pawnInfos[i];
             _pawn.Move(_pawnInfos[i].m_InstantiationPosition);
-            if (_pawn.m_PawnNameTextPro == null)
-                Debug.LogWarning("Player text mesh pro is null");
-            else
+            if (_pawn.m_PawnNameTextPro != null)
                 _pawn.m_PawnNameTextPro.text = "" + _pawnInfos[i].m_PlayerInfo.m_PlayerName[0];
+            else
+                Debug.LogWarning("Player text mesh pro is null");
+
+            if(_pawn.m_Image != null)
+            {
+                _pawn.m_Image.color = _pawnInfos[i].m_PlayerInfo.m_PlayerColorCode;
+            }
+            else
+            {
+                Debug.LogWarning("Player Image is null");
+            }
 
             if (GameManager.m_Instance.m_GameType == GameType.Offline)
             {
@@ -248,7 +257,7 @@ public class GameplayManager : MonoBehaviour
         {
             m_currentPlayerUID = m_allPawnInfos[m_currentPlayerIndex].m_PlayerInfo.m_PlayerName;
             GameplayCanvasManager.m_Instance.UpdateCurrentPlayingPlayerName(m_currentPlayerUID);
-            GameplayCanvasManager.m_Instance.UpdateCurrentPlayerName(m_currentPlayerUID);
+            GameplayCanvasManager.m_Instance.UpdatePlayerUpperLeftAvatar(m_allPawnInfos[m_currentPlayerIndex].m_PlayerInfo.m_PlayerColorCode, m_currentPlayerUID);
         }
         else if (GameManager.m_Instance.m_GameType == GameType.Online)
         {

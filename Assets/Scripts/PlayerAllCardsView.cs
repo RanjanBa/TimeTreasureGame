@@ -30,7 +30,7 @@ public class PlayerAllCardsView : MonoBehaviour
 
     private void CheckInteractable(Pawn _pawn)
     {
-        if(_pawn.m_PawnInfo.m_NumberOfFuelCards <= 0)
+        if (_pawn.m_PawnInfo.m_NumberOfFuelCards <= 0)
         {
             m_decreaseButton.interactable = false;
             m_increaseButton.interactable = false;
@@ -43,8 +43,12 @@ public class PlayerAllCardsView : MonoBehaviour
             m_increaseButton.interactable = true;
             m_decreaseButton.interactable = false;
         }
-
-        if (m_fuelCardNumber >= _pawn.m_PawnInfo.m_NumberOfFuelCards)
+        else if (m_fuelCardNumber > 0 && m_fuelCardNumber < _pawn.m_PawnInfo.m_NumberOfFuelCards)
+        {
+            m_increaseButton.interactable = true;
+            m_decreaseButton.interactable = true;
+        }
+        else if (m_fuelCardNumber >= _pawn.m_PawnInfo.m_NumberOfFuelCards)
         {
             m_increaseButton.interactable = false;
             m_decreaseButton.interactable = true;

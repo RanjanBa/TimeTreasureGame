@@ -1,9 +1,10 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerInfo
 {
-    public Sprite m_ProfileIcon { get; private set; }
+    public Color m_PlayerColorCode { get; set; }
     public string m_PlayerName { get; private set; }
     public string m_PlayerUID { get; private set; }
 
@@ -31,6 +32,7 @@ public class Pawn : MonoBehaviour
     public PawnInfo m_PawnInfo { get; set; }
 
     public TextMeshProUGUI m_PawnNameTextPro;
+    public Image m_Image;
     public Vector2Int m_PlayerPosition { get; private set; }
     public int m_Point;
 

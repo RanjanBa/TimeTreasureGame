@@ -12,14 +12,16 @@ public class SignUp : MonoBehaviour {
     [SerializeField]
     private Button m_signUpButton;
 
-    private void Awake()
+    private void Start()
     {
         m_signUpButton.onClick.AddListener(() => OnSignUpButtonPressed());
     }
 
     public void EnableSignUpButton()
     {
+        Toast.m_Instance.ShowMessage("Enable button sign up1");
         m_signUpButton.interactable = true;
+        Toast.m_Instance.ShowMessage("Enable button sign up2");
     }
 
     public void OnSignUpButtonPressed()

@@ -187,8 +187,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98248b43d4df78b4f800195fd5cbf4c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_PlayerColorCode: {r: 0.5566038, g: 0.5340377, b: 0.18115878, a: 1}
   m_playerNameText: {fileID: 114981139155137146}
   m_removeButton: {fileID: 114016032896126530}
+  m_avaterHolder: {fileID: 114805297094983878}
 --- !u!1 &1638549205919770
 GameObject:
   m_ObjectHideFlags: 0

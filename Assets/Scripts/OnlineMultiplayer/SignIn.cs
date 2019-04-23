@@ -11,7 +11,7 @@ public class SignIn : MonoBehaviour
     [SerializeField]
     private Button m_signInButton;
 
-    private void Awake()
+    private void Start()
     {
         m_signInButton.onClick.AddListener(() => OnSignInButtonPressed());
     }
@@ -44,6 +44,8 @@ public class SignIn : MonoBehaviour
 
     public void EnableSignInButton()
     {
+        Toast.m_Instance.ShowMessage("Enable button sign in1");
         m_signInButton.interactable = true;
+        Toast.m_Instance.ShowMessage("Enable button sign in2");
     }
 }
