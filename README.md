@@ -61,4 +61,5 @@
 It is used because it has some functionality like listening to changes in the database and get the data changes in real-time i.e. it can sync the data across the client platform.
 
 #### <a name="how-to-use"/> 5. How to use the project ####
->
+> * __Set up project in Unity :__ First of all download unity2018.3.5f or greater version. Download github project in your local drive and open it in unity.
+> * __Set up Firebase for project :__ To set up the Firebase in unity, just see the [Firbase Document](https://firebase.google.com/docs/unity/setup).

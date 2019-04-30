@@ -53,6 +53,8 @@ namespace TimeTreasure
         private List<Game> m_allCreatedgames = new List<Game>();
         private Stack<GameObject> m_stackOfGameobjectForBack = new Stack<GameObject>();
 
+        private TouchScreenKeyboard m_touchScreenKeyboard;
+
         private void Awake()
         {
             if (m_Instance != null)
@@ -476,8 +478,9 @@ namespace TimeTreasure
                     else
                     {
                         m_createJoinGameMenu.SetActive(true);
-                        m_currentlyActivePage = m_createJoinGameMenu;
                         m_stackOfGameobjectForBack.Clear();
+                        m_stackOfGameobjectForBack.Push(m_offlineOnlineMenuPage);
+                        m_currentlyActivePage = m_createJoinGameMenu;
                     }
                     break;
                 case MenuPage.CreateGamePage:
@@ -501,7 +504,6 @@ namespace TimeTreasure
                     else
                     {
                         m_addPlayerPanel.SetActive(false);
-                        m_stackOfGameobjectForBack.Clear();
                         FirebaseRealtimeDatabase.m_Instance.GetAllJoinedPlayer(GameManager.m_Instance.m_GameInfo.m_CreatorUID);
                     }
                     UpdateJoinedPlayerInfo(GameManager.m_Instance.m_JoinedPlayersInfo);
