@@ -12,7 +12,7 @@
 #### <a name="gameplay-overview"/> 2. Gameplay overview ####
 >In this section, I will give you quick overview of gameplay of the __Time Treasure__ card game. The game can be played among 2 to 4 players. The main of objective of the game is collect as many treasures and coin as possible from the map. The board have the picture of world map where 24 longitude line and 11 latitude lines are present. Player can move from one cross section points of the lines. There are many coins and treasure boxes at the cross sections of the lines of longitude and latitude and player can collect that coins and treasure box by going to that cross-section point. When there is no coins and treasure boxes left on the map, the player who collects the maximum coins and treasures will win the game.
 
-![Gameplay board](https://firebasestorage.googleapis.com/v0/b/timetreasure-3303a.appspot.com/o/Capture.PNG?alt=media&token=379409a1-2fb5-46be-b33f-32d128aa7f6a)
+![Gameplay board](https://firebasestorage.googleapis.com/v0/b/timetreasure-3303a.appspot.com/o/TimeTreasureGameplay.PNG?alt=media&token=76adc322-8823-47f1-8773-618a67af1cef)
 
 #### <a name="rules-cards"/> 3. Rules of the cards ####
 >There are four types of cards:
