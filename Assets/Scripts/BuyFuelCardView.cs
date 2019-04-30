@@ -10,6 +10,8 @@ public class BuyFuelCardView : MonoBehaviour
     private Button m_upButton, m_downButton, m_buyButton, m_cancelButton;
     [SerializeField]
     private RotatingCircle m_rotatingCircle;
+    [SerializeField]
+    private FrontCardView m_fuelCardFrontView;
 
     private int m_usedPoint = 0;
 
@@ -32,7 +34,7 @@ public class BuyFuelCardView : MonoBehaviour
         m_upButton.onClick.AddListener(() =>
         {
             m_usedPoint++;
-            if(m_usedPoint > 0)
+            if (m_usedPoint > 0)
             {
                 m_downButton.interactable = true;
             }
@@ -43,7 +45,7 @@ public class BuyFuelCardView : MonoBehaviour
         m_downButton.onClick.AddListener(() =>
         {
             m_usedPoint--;
-            if(m_usedPoint <= 0)
+            if (m_usedPoint <= 0)
             {
                 m_downButton.interactable = false;
             }
@@ -97,5 +99,6 @@ public class BuyFuelCardView : MonoBehaviour
         {
             GameplayCanvasManager.m_Instance.ShowGameplayCanvasMenu(GameplayCanvasMenu.GameplayBoardPanel);
         });
+        m_fuelCardFrontView.UpdateCardView(_pawn, CardManager.m_Instance.m_FuelCard, _enableButtton: false);
     }
 }

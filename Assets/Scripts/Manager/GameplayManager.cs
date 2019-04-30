@@ -172,14 +172,7 @@ public class GameplayManager : MonoBehaviour
             else
                 Debug.LogWarning("Player text mesh pro is null");
 
-            if(_pawn.m_Image != null)
-            {
-                _pawn.m_Image.color = _pawnInfos[i].m_PlayerInfo.m_PlayerColorCode;
-            }
-            else
-            {
-                Debug.LogWarning("Player Image is null");
-            }
+            _pawn.Init(_pawnInfos[i].m_PlayerInfo.m_PlayerColorCode);
 
             if (GameManager.m_Instance.m_GameType == GameType.Offline)
             {

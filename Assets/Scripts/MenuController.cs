@@ -81,6 +81,22 @@ namespace TimeTreasure
             m_playerNameTextInput.text = "";
             m_playerNameText.text = "";
 
+            if (m_stackOfGameobjectForBack != null)
+            {
+                if (m_stackOfGameobjectForBack.Count > 0)
+                {
+                    m_backButton.gameObject.SetActive(true);
+                }
+                else
+                {
+                    m_backButton.gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                m_backButton.gameObject.SetActive(false);
+            }
+
             m_backButton.onClick.AddListener(() => OnBackButtonPressed());
 
             if (GameManager.m_Instance.m_JoinedPlayersInfo.Count < 4)

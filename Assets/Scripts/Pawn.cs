@@ -32,9 +32,22 @@ public class Pawn : MonoBehaviour
     public PawnInfo m_PawnInfo { get; set; }
 
     public TextMeshProUGUI m_PawnNameTextPro;
-    public Image m_Image;
     public Vector2Int m_PlayerPosition { get; private set; }
     public int m_Point;
+
+    [SerializeField]
+    private Image m_image;
+
+    public Color m_ColorCode { get; private set; }
+
+    public void Init(Color _colorCode)
+    {
+        m_ColorCode = _colorCode;
+        if (m_image != null)
+        {
+            m_image.color = _colorCode;
+        }
+    }
 
     public void Move(Vector2Int _position)
     {

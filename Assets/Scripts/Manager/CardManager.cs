@@ -9,25 +9,35 @@ public class CardManager : MonoBehaviour
 
     [SerializeField]
     private Color
-        m_powerCardColor,
         m_hourCardColor,
+        m_powerCardColor,
         m_trapCardColor,
         m_fuelCardColor,
         m_hourCardMidColor,
         m_powerCardMidColor,
         m_trapCardMidColor,
-        m_fuelCardMidColor;
+        m_fuelCardMidColor,
+        m_hourCardTextColor,
+        m_powerCardTextColor,
+        m_trapCardTextColor,
+        m_fuelCardTextColor;
 
-
-    public FuelCard m_FuelCard { get; private set; }
     public Color m_PowerCardColor { get { return m_powerCardColor; } }
     public Color m_HourCardColor { get { return m_hourCardColor; } }
     public Color m_TrapCardColor { get { return m_trapCardColor; } }
     public Color m_FuelCardColor { get { return m_fuelCardColor; } }
+
     public Color m_HourCardMidColor { get { return m_hourCardMidColor; } }
     public Color m_PowerCardMidColor { get { return m_powerCardMidColor; } }
     public Color m_TrapCardMidColor { get { return m_trapCardMidColor; } }
     public Color m_FuelCardMidColor { get { return m_fuelCardMidColor; } }
+
+    public Color m_HourCardTextColor { get { return m_hourCardTextColor; } }
+    public Color m_PowerCardTextColor { get { return m_powerCardTextColor; } }
+    public Color m_TrapCardTextColor { get { return m_trapCardTextColor; } }
+    public Color m_FuelCardTextColor { get { return m_fuelCardTextColor; } }
+
+    public FuelCard m_FuelCard { get; private set; }
 
     public List<Card> m_RemainingShufflePowerHourCard { get { return m_remainingShufflePowerHourCard; } }
     public List<TrapCard> m_RemainingShuffleTrapCard { get { return m_remainingShuffleTrapCard; } }

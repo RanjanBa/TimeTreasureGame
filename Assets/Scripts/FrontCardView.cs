@@ -32,24 +32,29 @@ public sealed class FrontCardView : MonoBehaviour
         m_card = _card;
         m_owner = _owner;
 
-        m_cardTypeTextPro.text = m_card.CardTypeText;
-        m_cardMiddleTextPro.text = m_card.CardNameText;
-        m_cardBottomTextPro.text = m_card.CardBottomText;
-
         if (m_card.GetType() == typeof(PowerCard))
         {
             m_mainCardImage.color = CardManager.m_Instance.m_PowerCardColor;
             m_upperImage.color = m_midImage.color = CardManager.m_Instance.m_PowerCardMidColor;
+            m_cardTypeTextPro.color = CardManager.m_Instance.m_PowerCardTextColor;
+            m_cardBottomTextPro.color = CardManager.m_Instance.m_PowerCardTextColor;
+            m_cardMiddleTextPro.color = CardManager.m_Instance.m_PowerCardTextColor;
         }
         else if (m_card.GetType() == typeof(HourCard))
         {
             m_mainCardImage.color = CardManager.m_Instance.m_HourCardColor;
             m_upperImage.color = m_midImage.color = CardManager.m_Instance.m_HourCardMidColor;
+            m_cardTypeTextPro.color = CardManager.m_Instance.m_HourCardTextColor;
+            m_cardMiddleTextPro.color = CardManager.m_Instance.m_HourCardTextColor;
+            m_cardBottomTextPro.color = CardManager.m_Instance.m_HourCardTextColor;
         }
         else if (m_card.GetType() == typeof(TrapCard))
         {
             m_mainCardImage.color = CardManager.m_Instance.m_TrapCardColor;
             m_upperImage.color = m_midImage.color = CardManager.m_Instance.m_TrapCardMidColor;
+            m_cardTypeTextPro.color = CardManager.m_Instance.m_TrapCardTextColor;
+            m_cardMiddleTextPro.color = CardManager.m_Instance.m_TrapCardTextColor;
+            m_cardBottomTextPro.color = CardManager.m_Instance.m_TrapCardTextColor;
         }
         else if (m_card.GetType() == typeof(FuelCard))
         {
@@ -57,10 +62,17 @@ public sealed class FrontCardView : MonoBehaviour
             m_mainCardImage.color = CardManager.m_Instance.m_FuelCardColor;
             m_upperImage.color = m_midImage.color = CardManager.m_Instance.m_FuelCardMidColor;
             m_midImage.gameObject.SetActive(false);
+            m_cardTypeTextPro.color = CardManager.m_Instance.m_FuelCardTextColor;
+            m_cardMiddleTextPro.color = CardManager.m_Instance.m_FuelCardTextColor;
+            m_cardBottomTextPro.color = CardManager.m_Instance.m_FuelCardTextColor;
         }
 
         m_midImage.gameObject.SetActive(true);
         m_button.onClick.RemoveAllListeners();
+
+        m_cardTypeTextPro.text = m_card.CardTypeText;
+        m_cardMiddleTextPro.text = m_card.CardNameText;
+        m_cardBottomTextPro.text = m_card.CardBottomText;
 
         if (_enableButtton)
         {
