@@ -14,6 +14,8 @@
 
 ![Gameplay board](https://firebasestorage.googleapis.com/v0/b/timetreasure-3303a.appspot.com/o/TimeTreasureGameplay.PNG?alt=media&token=76adc322-8823-47f1-8773-618a67af1cef)
 
+![Game UI](https://github.com/RanjanBa/TimeTreasureGame/blob/master/Assets/Art/ui-cards.jpg)
+
 #### <a name="rules-cards"/> 3. Rules of the cards ####
 >There are four types of cards:
 >* 24 Hour cards :
