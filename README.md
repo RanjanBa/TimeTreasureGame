@@ -9,6 +9,8 @@
 #### <a name="project-overview"/> 1. Project overview ####
 >__Time Treasure__ is a card game designed to teach primary school students about the world time zone and how the time depends on the latitude and longitude. This game can be played among two to four players at a time. The aim of the project was to build a software game from already designed physical card game which can be played online and offline with friends on android mobile platform.
 
+![Game Openning](https://github.com/RanjanBa/TimeTreasureGame/blob/master/Assets/Art/time_treasure_menu.jpg)
+
 #### <a name="gameplay-overview"/> 2. Gameplay overview ####
 >In this section, I will give you quick overview of gameplay of the __Time Treasure__ card game. The game can be played among 2 to 4 players. The main of objective of the game is collect as many treasures and coin as possible from the map. The board have the picture of world map where 24 longitude line and 11 latitude lines are present. Player can move from one cross section points of the lines. There are many coins and treasure boxes at the cross sections of the lines of longitude and latitude and player can collect that coins and treasure box by going to that cross-section point. When there is no coins and treasure boxes left on the map, the player who collects the maximum coins and treasures will win the game.
 
